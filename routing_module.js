@@ -9,7 +9,11 @@ define([
             href = href.substring(1, href.length);
         }
         _router.navigate(href, true);
-    };        
+    };
+    
+    var route = function(route, name, callback) {
+        _router.route(route, name, callback);
+    };
     
     app.core.define('Router', function(sandbox) {
         return {
@@ -24,9 +28,8 @@ define([
             "@Application.ready": function() {
                 Backbone.history.start();
             },
-            route: function(route, name, callback) {
-                _router.route(route, name, callback);
-            }
+            route: route,
+            navigate: navigate
         };
     });
 

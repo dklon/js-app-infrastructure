@@ -19,7 +19,7 @@ define([
     
     app.core.define('AuthModule', function(sandbox) {
         var module = {
-            "@ResourcesModule.ready": function(module) {
+            "@TypesModule.ready": function(module) {
                 // TODO: remove registerController function from app and automate based on, say, "@routes" attribute on module
                 var self = this;
                 var authCookie = $.cookie('auth_token');
