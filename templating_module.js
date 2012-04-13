@@ -54,7 +54,7 @@ define([
                             templateSource['data']('precompiled', precompiled);
                         }
                         
-                        // bindingContext['$app'] = app;
+                        bindingContext['$app'] = app;
                         
                         // Run the template and parse its output into an array of DOM elements
                         var renderedMarkup = precompiled(bindingContext).replace(/\s+/g, " ");
