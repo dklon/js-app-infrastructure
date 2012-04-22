@@ -1,7 +1,6 @@
 define([
-    'core/app',
-    'app/models/user'
-], function(app, User) {
+    'core/app'
+], function(app) {
 
     var _currentUser = null;
 
@@ -24,7 +23,7 @@ define([
                 var self = this;
                 var authCookie = $.cookie('auth_token');
                 if (authCookie) {
-                    User.load(JSON.parse(authCookie).user_id, function(user) {
+                    app.resources.locate('user').load(JSON.parse(authCookie).user_id, function(user) {
                         _currentUser = user;
                         self.publish('success', [_currentUser]);
                         self.ready();
