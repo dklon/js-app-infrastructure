@@ -39,7 +39,7 @@ define([
                     type: 'GET',
                     url: '/api/auth?user_name=' + username + '&password=' + password,
                     success: function(data) {
-                        _currentUser = new User(data);
+                        _currentUser = app.resources.new('user', data);
                         dropCookie(data);
                         success(_currentUser);
                         self.publish('success', [_currentUser]);
